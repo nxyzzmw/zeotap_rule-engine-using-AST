@@ -55,7 +55,7 @@ The data structure to represent the AST is defined as follows:
 ### Setup Instructions
 1. Clone the project or download the ZIP file and extract it.
    ```bash
-  [ git clone https://github.com/Yuvaraj133/Zeotap-Ast.git]
+  [ git clone https://github.com/nxyzzmw/zeotap_rule-engine-using-AST.git ]
 2. Run the following command to install necessary packages:
    ```bash
    npm install mongoose express dotenv ejs

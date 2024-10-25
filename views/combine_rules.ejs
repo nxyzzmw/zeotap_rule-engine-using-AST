@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combine Rules</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-section, .result-section {
+            flex: 1;
+            margin-right: 20px; /* Space between form and result */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #007BFF; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #e7f4e4; /* Light green background for result */
+        }
+
+        .result h2 {
+            margin-top: 0;
+        }
+
+        .result p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack elements vertically on smaller screens */
+            }
+            .form-section, .result-section {
+                margin-right: 0; /* Remove right margin */
+                margin-bottom: 20px; /* Add bottom margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Combine Rules</h1>
+    <form action="/combine_rules" method="POST">
+        <label for="rule1">Select Rule 1:</label>
+        <select name="rule1">
+            <% rules.forEach(rule => { %>
+                <option value="<%= rule._id %>"><%= rule.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="rule2">Select Rule 2:</label>
+        <select name="rule2">
+            <% rules.forEach(rule => { %>
+                <option value="<%= rule._id %>"><%= rule.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="operation">Operation:</label>
+        <select name="operation">
+            <option value="AND">AND</option>
+            <option value="OR">OR</option>
+        </select>
+        <br>
+        <button type="submit">Combine Rules</button>
+    </form>
+    <a href="/" class="button">Create a New Rule</a>
+        <a href="/combine_rules" class="button">Combine Rules</a>
+        <a href="/evaluate_rule" class="button">Evaluate Rules</a>
+        <a href="/view_rules" class="button">Display All Rules</a>
+</body>
+</html>

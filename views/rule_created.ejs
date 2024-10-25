@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Created</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #333;
+        }
+        .details {
+            text-align: left;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #4caf50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rule Created Successfully!</h1>
+        <p>Your rule has been saved in the database.</p>
+
+        <div class="details">
+            <p><strong>Rule Name:</strong> <%= rule.name %></p>
+            <p><strong>Rule String:</strong> <%= rule.ruleString %></p>
+            <pre><strong>AST:</strong> <%= JSON.stringify(rule.ast, null, 2) %></pre>
+        </div>
+        <a href="/" class="button">Create a New Rule</a>
+        <a href="/combine_rules" class="button">Combine Rules</a>
+        <a href="/evaluate_rule" class="button">Evaluate Rules</a>
+        <a href="/view_rules" class="button">Display All Rules</a>
+    </div>
+</body>
+</html>
